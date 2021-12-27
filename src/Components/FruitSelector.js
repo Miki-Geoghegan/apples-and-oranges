@@ -16,7 +16,7 @@ componentDidMount() {
 }
 
 
-renderUserSelection() {
+renderUserOptions() {
     const { fruit } = this.state
     return(
         <div>
@@ -38,7 +38,7 @@ render() {
     return (
         <div>
             <h1>Select Your Fruit</h1>
-            <div>{this.renderUserSelection}</div>
+            <div>{this.renderUserOptions}</div>
 
             
         </div>
@@ -47,14 +47,14 @@ render() {
 
 
 
-handleClick = (button) => {
+handleClick = (button, e) => {
     const { fruit } = this.state
-    if (img.src == fruit[0]) {
+    if (e.target == fruit[0]) {
         this.setState ({
-            fruit: [orange]
+            fruit: ["orange"]
         }) 
     } this.setState ({
-        fruit: [apple]
+        fruit: ["apple"]
     })
     return {
         button

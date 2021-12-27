@@ -1,4 +1,4 @@
- import { combineReducers } from 'redux'
+ import { combineReducers } from "redux"
 
  const initialState = { 
      count: 0
@@ -9,12 +9,12 @@
          case "INCREASE-COUNT":
              return {
                  ...state,
-                 count: count + 1
+                 count: state.count + 1
              }
           case "DECREASE-COUNT":
               return {
                   ...state,
-                  count: count - 1
+                  count: state.count - 1
               }
          default: state
      }
@@ -25,7 +25,8 @@
      switch (action.type) {
          case "UNKNOWN":
              return {
-                 ...state
+                 ...state,
+                 count: state.count * 1
              }
          default: state
      }

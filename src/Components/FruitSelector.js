@@ -1,14 +1,13 @@
 import { Component } from "react";
-import orange from ""
-import apple from ""
+//import orange from ""
+//import apple from ""
 
-console.log(orange)
 
 class FruitSelector extends Component {
     constructor() {
         super()
         this.state = {
-            fruit: [orange, apple],
+            fruit: ["orange", "apple"],
         }
     }
 
@@ -18,6 +17,7 @@ componentDidMount() {
 
 
 renderUserSelection() {
+    const { fruit } = this.state
     return(
         <div>
             <img onClick= {this.handleClick(this.renderButton)} src = {fruit[0]}></img>

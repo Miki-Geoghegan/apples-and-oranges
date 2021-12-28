@@ -1,23 +1,28 @@
 import { Component } from 'react'
 import apple from './appleImg.png'
+import { connect } from 'react-redux'
 import orange from './orangeImg.jpg'
 
 class FruitSelector extends Component {
 
-  constructor() {
-    super()
-    this.state = {
-      fruit: [orange, apple]
-    }
+  constructor(props) {
+    super(props)
   }
 
   renderUserOptions() {
-    const { fruit } = this.state
+    const { fruit } = this.props
 
     return (
-      <div>
-        <img alt = "Orange" src = { fruit[0] } />
-        <img alt = "Apple" src = { fruit[1] } />
+      <div className = "fruit-container">
+        <div className = "fruit-selection">
+          <img alt = "Orange" src = { orange } />
+          <button onClick= { this.handleClick() } >Choose Oranges</button>
+        </div>
+        <div className = "fruit-selection">
+          <img alt = "Apple" src = { apple } />
+          <button onClick= { this.handleClick() } >Choose Apples</button>
+        </div>
+
         { /* <img onClick= {this.handleClick(this.renderButton)} src = {fruit[0]}/>
             <img onClick= {this.handleClick(this.renderButton)} src = {fruit[1]}/> */ }
       </div>
@@ -40,21 +45,25 @@ class FruitSelector extends Component {
     )
   }
 
-  handleClick = (button, event) => {
-    const { fruit } = this.state
-
-    if (event.target === fruit[0]) {
-      this.setState({
-        fruit: [orange]
-      })
-    } this.setState({
-      fruit: [apple]
-    })
-
-    return {
-      button
-    }
+  handleClick = () => {
+    console.log('hi')
   }
+
+  //   handleClick = (button, event) => {
+  //     const { fruit } = this.state
+
+  //     if (event.target === fruit[0]) {
+  //       this.setState({
+  //         fruit: [orange]
+  //       })
+  //     } this.setState({
+  //       fruit: [apple]
+  //     })
+
+  //     return {
+  //       button
+  //     }
+  //   }
 
 }
 

@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux'
+import { GAME_HAS_FINISHED, GAME_HAS_STARTED, SET_FRUIT_TYPE } from '../constants/gameStatus'
 
 const initialState = {
   fruitType: null,
@@ -6,50 +6,25 @@ const initialState = {
   hasGameStarted: false
 }
 
-const initialCountState = {
-  count: 0
-}
-
-const initialUnknownState = {
-  count: 2
-}
-
 const fruitTypeReducer = (state = initialState, action) => {
   switch (action.type) {
-  case 'SET-FRUIT-TYPE':
+  case SET_FRUIT_TYPE:
     return {
       ...state,
       fruitType: action.payload
     }
-  default: return state
-  }
-}
-
-const countReducer = (state = initialCountState, action) => {
-  switch (action.type) {
-  case 'INCREASE-COUNT':
+  case GAME_HAS_STARTED:
     return {
       ...state,
-      count: state.count + 1
+      hasGameStarted: true
     }
-  case 'DECREASE-COUNT':
+  case GAME_HAS_FINISHED:
     return {
       ...state,
-      count: state.count - 1
+      hasGameFinished: true
     }
   default: return state
   }
 }
 
-const unknownReducer = (state = initialUnknownState, action) => {
-  switch (action.type) {
-  case 'UNKNOWN':
-    return {
-      ...state,
-      count: state.count * 1
-    }
-  default: return state
-  }
-}
-
-export default combineReducers({ countReducer, fruitTypeReducer, unknownReducer })
+export default fruitTypeReducer

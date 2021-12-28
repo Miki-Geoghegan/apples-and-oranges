@@ -1,17 +1,17 @@
-import './App.css';
-import { Provider } from "react-redux"
-import { store } from "./store/index"
-import FruitSelector from "./Components/FruitSelector"
+import './App.css'
+import FruitSelector from './Components/FruitSelector'
+import { Provider } from 'react-redux'
+import { store } from './store/index'
 
 const App = () => {
   return (
-    <Provider store={store}>
-    <div className="App">
-      <FruitSelector />
+    <Provider store={ store }>
+      <div className="App">
+        <FruitSelector />
 
-    </div>
+      </div>
     </Provider>
-  );
+  )
 }
 
-export default App;
+export default App

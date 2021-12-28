@@ -1,13 +1,14 @@
 import { Component } from "react";
-//import orange from ""
-//import apple from ""
+import orange from "./orangeImg.jpg"
+import apple from "./appleImg.png"
+
 
 
 class FruitSelector extends Component {
     constructor() {
         super()
         this.state = {
-            fruit: ["orange", "apple"],
+            fruit: [orange, apple],
         }
     }
 
@@ -20,8 +21,10 @@ renderUserOptions() {
     const { fruit } = this.state
     return(
         <div>
-            <img onClick= {this.handleClick(this.renderButton)} src = {fruit[0]}></img>
-            <img onClick= {this.handleClick(this.renderButton)} src = {fruit[1]}></img>
+            <img src = { fruit[0] } alt = "Orange"/>
+            <img src = { fruit[1] } alt = "Apple"/>
+            {/* <img onClick= {this.handleClick(this.renderButton)} src = {fruit[0]}/>
+            <img onClick= {this.handleClick(this.renderButton)} src = {fruit[1]}/> */}
         </div>
 
     )
@@ -38,9 +41,7 @@ render() {
     return (
         <div>
             <h1>Select Your Fruit</h1>
-            <div>{this.renderUserOptions}</div>
-
-            
+            <div>{this.renderUserOptions()}</div>
         </div>
     )
 }
@@ -64,3 +65,5 @@ handleClick = (button, e) => {
 }
 
 export default FruitSelector
+
+// linkting = set of rules/ conventions that the code has to run by

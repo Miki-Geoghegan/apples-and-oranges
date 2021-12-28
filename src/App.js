@@ -3,7 +3,7 @@ import { Provider } from "react-redux"
 import { store } from "./store/index"
 import FruitSelector from "./Components/FruitSelector"
 
-function App() {
+const App = () => {
   return (
     <Provider store={store}>
     <div className="App">

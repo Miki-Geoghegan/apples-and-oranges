@@ -1,11 +1,28 @@
  import { combineReducers } from "redux"
 
+ const initialState = {
+     hasGameStarted: false,
+     hasGameFinished: false,
+     fruitType: null
+ }
+
  const initialCountState = { 
      count: 0
  }
 
  const initialUnknownState = {
      count: 2
+ }
+
+ const fruitTypeReducer = (state = initialState, action) => {
+     switch(action.type) {
+         case "SET-FRUIT-TYPE":
+             return {
+                 ...state,
+                 fruitType: action.payload
+             }
+             default: return state
+     } 
  }
 
  const countReducer = (state = initialCountState, action) => {
@@ -37,4 +54,4 @@
  }
 
 
- export default combineReducers({ countReducer, unknownReducer})
+ export default combineReducers({ fruitTypeReducer, countReducer, unknownReducer})

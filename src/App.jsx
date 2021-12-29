@@ -1,4 +1,3 @@
-import 'styles/App.scss'
 import Count from 'components/Count'
 import FruitSelector from 'components/FruitSelector'
 import { Provider } from 'react-redux'

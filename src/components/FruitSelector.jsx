@@ -1,7 +1,7 @@
 import { Component } from 'react'
-import apple from 'assets/appleImg.png'
+import appleImg from 'assets/apple.png'
 import { connect } from 'react-redux'
-import orange from 'assets/orangeImg.jpg'
+import orangeImg from 'assets/orange.png'
 import { APPLE, ORANGE } from 'utils/constants'
 import {
   GAME_HAS_FINISHED,
@@ -18,21 +18,26 @@ class FruitSelector extends Component {
     }
   }
 
+  renderUserOption = ({ imgSrc, value }) => {
+    return (
+      <div className="fruitselector__select" key={ value }>
+        <img alt={ value } src={ imgSrc } />
+        <button onClick={ this.handleFruitSelectorClick } value={ value }>
+            Choose { value }
+        </button>
+      </div>
+    )
+  }
+
   renderUserOptions() {
+    const fruits = [
+      { imgSrc: orangeImg, value: ORANGE },
+      { imgSrc: appleImg, value: APPLE }
+    ]
+
     return (
       <div className="fruit-container">
-        <div className="fruit-selection">
-          <img alt={ ORANGE } src={ orange } />
-          <button onClick={ this.handleFruitSelectorClick } value={ ORANGE }>
-            Choose Oranges
-          </button>
-        </div>
-        <div className="fruit-selection">
-          <img alt={ APPLE } src={ apple } />
-          <button onClick={ this.handleFruitSelectorClick } value={ APPLE }>
-            Choose Apples
-          </button>
-        </div>
+        { fruits.map(this.renderUserOption) }
       </div>
     )
   }
@@ -43,6 +48,7 @@ class FruitSelector extends Component {
 
     return (
       <button
+        className="fruitselector__button"
         disabled={ !Boolean(fruitType) }
         onClick={ this.handleGameStartButtonClick }
       >
@@ -53,8 +59,8 @@ class FruitSelector extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Select Your Fruit</h1>
+      <div className="fruitselector">
+        <h1 className="fruitselector__title">Select Your Fruit</h1>
         <div>{ this.renderUserOptions() }</div>
         <div>{ this.renderButton() }</div>
       </div>

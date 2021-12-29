@@ -9,6 +9,9 @@ class FruitSelector extends Component {
 
   constructor(props) {
     super(props)
+    this.state = {
+      buttonEnabled: true
+    }
   }
 
   renderUserOptions() {
@@ -31,8 +34,16 @@ class FruitSelector extends Component {
   }
 
   renderButton() {
+    const { chooseFruit } = this.props
+
+    if (chooseFruit !== ORANGE || APPLE) {
+      return (
+        <button disabled = { true }>START</button>
+      )
+    }
+
     return (
-      <button>START</button>
+      <button disabled = { false }>START</button>
     )
   }
 
@@ -41,31 +52,19 @@ class FruitSelector extends Component {
       <div>
         <h1>Select Your Fruit</h1>
         <div>{ this.renderUserOptions() }</div>
+        <div>{ this.renderButton() }</div>
       </div>
     )
   }
 
   handleClick = ({ target: { value } }) => {
     const { chooseFruit } = this.props
+    const { buttonEnabled } = this.state
 
     chooseFruit(value)
+
+    this.setState({ buttonEnabled: true })
   }
-
-  //   handleClick = (button, event) => {
-  //     const { fruit } = this.state
-
-  //     if (event.target === fruit[0]) {
-  //       this.setState({
-  //         fruit: [orange]
-  //       })
-  //     } this.setState({
-  //       fruit: [apple]
-  //     })
-
-  //     return {
-  //       button
-  //     }
-  //   }
 
 }
 

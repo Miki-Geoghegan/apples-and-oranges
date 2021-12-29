@@ -6,28 +6,26 @@ import { APPLE, ORANGE } from '../utils/constants'
 import {
   GAME_HAS_FINISHED,
   GAME_HAS_STARTED,
-  SET_FRUIT_TYPE,
+  SET_FRUIT_TYPE
 } from '../store/constants/gameStatus'
 
 class FruitSelector extends Component {
+
   renderUserOptions() {
     return (
-      <div className='fruit-container'>
-        <div className='fruit-selection'>
-          <img alt={ORANGE} src={orange} />
-          <button onClick={this.handleFruitSelectotClick} value={ORANGE}>
+      <div className="fruit-container">
+        <div className="fruit-selection">
+          <img alt={ ORANGE } src={ orange } />
+          <button onClick={ this.handleFruitSelectorClick } value={ ORANGE }>
             Choose Oranges
           </button>
         </div>
-        <div className='fruit-selection'>
-          <img alt={APPLE} src={apple} />
-          <button onClick={this.handleFruitSelectotClick} value={APPLE}>
+        <div className="fruit-selection">
+          <img alt={ APPLE } src={ apple } />
+          <button onClick={ this.handleFruitSelectorClick } value={ APPLE }>
             Choose Apples
           </button>
         </div>
-
-        {/* <img onClick= {this.handleFruitSelectotClick(this.renderButton)} src = {fruit[0]}/>
-            <img onClick= {this.handleFruitSelectotClick(this.renderButton)} src = {fruit[1]}/> */}
       </div>
     )
   }
@@ -37,8 +35,8 @@ class FruitSelector extends Component {
 
     return (
       <button
-        disabled={!Boolean(fruitType)}
-        onClick={this.handleGameStartButtonClick}
+        disabled={ !Boolean(fruitType) }
+        onClick={ this.handleGameStartButtonClick }
       >
         START
       </button>
@@ -49,13 +47,13 @@ class FruitSelector extends Component {
     return (
       <div>
         <h1>Select Your Fruit</h1>
-        <div>{this.renderUserOptions()}</div>
-        <div>{this.renderButton()}</div>
+        <div>{ this.renderUserOptions() }</div>
+        <div>{ this.renderButton() }</div>
       </div>
     )
   }
 
-  handleFruitSelectotClick = ({ target: { value } }) => {
+  handleFruitSelectorClick = ({ target: { value } }) => {
     const { chooseFruit } = this.props
 
     chooseFruit(value)
@@ -66,11 +64,12 @@ class FruitSelector extends Component {
 
     startGame()
   }
+
 }
 
 const mapStateToProps = ({ fruitTypeReducer: { fruitType } }) => {
   return {
-    fruitType,
+    fruitType
   }
 }
 
@@ -81,7 +80,7 @@ const mapDispatchToProps = (dispatch) => {
     },
     startGame: () => {
       return dispatch({ type: GAME_HAS_STARTED })
-    },
+    }
   }
 }
 

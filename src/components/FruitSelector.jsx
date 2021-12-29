@@ -1,13 +1,13 @@
 import { Component } from 'react'
-import apple from '../assets/appleImg.png'
+import apple from 'assets/appleImg.png'
 import { connect } from 'react-redux'
-import orange from '../assets/orangeImg.jpg'
-import { APPLE, ORANGE } from '../utils/constants'
+import orange from 'assets/orangeImg.jpg'
+import { APPLE, ORANGE } from 'utils/constants'
 import {
   GAME_HAS_FINISHED,
   GAME_HAS_STARTED,
   SET_FRUIT_TYPE
-} from '../store/constants/gameStatus'
+} from 'store/constants/gameStatus'
 
 class FruitSelector extends Component {
 

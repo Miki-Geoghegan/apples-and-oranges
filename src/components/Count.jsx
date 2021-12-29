@@ -1,6 +1,6 @@
 import { Component } from 'react'
 import { connect } from 'react-redux'
-import { DECREASE_COUNT, INCREASE_COUNT } from '../utils/constants'
+import { DECREASE_COUNT, INCREASE_COUNT } from 'utils/constants'
 
 class Count extends Component {
 

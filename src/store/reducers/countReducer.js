@@ -1,4 +1,4 @@
-import { DECREASE_COUNT, INCREASE_COUNT } from '../constants/count'
+import { DECREASE_COUNT, INCREASE_COUNT } from 'store/constants/count'
 
 const initialCountState = {
   count: 0

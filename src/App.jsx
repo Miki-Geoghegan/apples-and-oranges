@@ -1,5 +1,5 @@
-import './App.css'
-import FruitSelector from './Components/FruitSelector'
+import './styles/App.scss'
+import FruitSelector from './components/FruitSelector'
 import { Provider } from 'react-redux'
 import { store } from './store/index'
 

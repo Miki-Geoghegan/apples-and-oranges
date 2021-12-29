@@ -11,6 +11,13 @@ import {
 
 class FruitSelector extends Component {
 
+  constructor(props) {
+    super(props)
+    this.state = {
+      message: 'START'
+    }
+  }
+
   renderUserOptions() {
     return (
       <div className="fruit-container">
@@ -32,13 +39,14 @@ class FruitSelector extends Component {
 
   renderButton() {
     const { fruitType } = this.props
+    const { message } = this.state
 
     return (
       <button
         disabled={ !Boolean(fruitType) }
         onClick={ this.handleGameStartButtonClick }
       >
-        START
+        { message ? 'START' : 'STOP' }
       </button>
     )
   }
@@ -60,9 +68,23 @@ class FruitSelector extends Component {
   }
 
   handleGameStartButtonClick = () => {
-    const { startGame } = this.props
+    const { startGame, finishGame } = this.props
+    const { message } = this.state
 
-    startGame()
+    if (message === 'START') {
+      startGame()
+      this.setState(prevState => {
+        return {
+          message: !prevState.message
+        }
+      })
+    }
+    finishGame()
+    this.setState(prevState => {
+      return {
+        message: !prevState.message
+      }
+    })
   }
 
 }
@@ -77,6 +99,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     chooseFruit: (payload) => {
       return dispatch({ payload, type: SET_FRUIT_TYPE })
+    },
+    finishGame: () => {
+      return dispatch({ type: GAME_HAS_FINISHED })
     },
     startGame: () => {
       return dispatch({ type: GAME_HAS_STARTED })

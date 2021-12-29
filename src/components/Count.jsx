@@ -1,6 +1,6 @@
 import { Component } from 'react'
 import { connect } from 'react-redux'
-import { INCREASE_COUNT, DECREASE_COUNT } from '../utils/constants'
+import { DECREASE_COUNT, INCREASE_COUNT } from '../utils/constants'
 
 class Count extends Component {
 
@@ -9,6 +9,7 @@ class Count extends Component {
 
     return (
       <div>
+        <div>{ count }</div>
         <div>
           <button onClick={ increaseCount }>+</button>
           <button onClick={ decreaseCount }>-</button>
@@ -20,10 +21,15 @@ class Count extends Component {
   render() {
     return (
       <div>{ this.renderCurrentCount() }</div>
-
     )
   }
 
+}
+
+const mapStateToProps = (globalState) => {
+  return {
+    count: globalState.count
+  }
 }
 
 const mapDispatchToProps = (dispatch) => {
@@ -37,6 +43,6 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-const connectRedux = connect(null, mapDispatchToProps)
+const connectRedux = connect(mapStateToProps, mapDispatchToProps)
 
 export default connectRedux(Count)

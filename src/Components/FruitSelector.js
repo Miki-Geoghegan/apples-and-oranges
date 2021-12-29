@@ -10,7 +10,7 @@ class FruitSelector extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      buttonEnabled: true
+      buttonEnabled: false
     }
   }
 
@@ -34,9 +34,9 @@ class FruitSelector extends Component {
   }
 
   renderButton() {
-    const { chooseFruit } = this.props
+    const { buttonEnabled } = this.state
 
-    if (chooseFruit !== ORANGE || APPLE) {
+    if (!buttonEnabled) {
       return (
         <button disabled = { true }>START</button>
       )
@@ -62,7 +62,6 @@ class FruitSelector extends Component {
     const { buttonEnabled } = this.state
 
     chooseFruit(value)
-
     this.setState({ buttonEnabled: true })
   }
 

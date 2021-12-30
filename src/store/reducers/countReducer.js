@@ -1,10 +1,10 @@
 import { DECREASE_COUNT, INCREASE_COUNT } from 'store/constants/count'
 
-const initialCountState = {
+const initialState = {
   count: 0
 }
 
-const countReducer = (state = initialCountState, action) => {
+const countReducer = (state = initialState, action) => {
   switch (action.type) {
   case INCREASE_COUNT:
     return {

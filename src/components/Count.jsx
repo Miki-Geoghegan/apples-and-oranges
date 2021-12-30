@@ -1,11 +1,13 @@
-import { Component } from 'react'
 import { connect } from 'react-redux'
 import { DECREASE_COUNT, INCREASE_COUNT } from 'utils/constants'
+import React, { Component } from 'react'
 
 class Count extends Component {
 
   renderCurrentCount() {
     const { count, decreaseCount, increaseCount } = this.props
+    console.log(count)
+    // current issue - count is undefined
 
     return (
       <div>
@@ -43,6 +45,8 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-const connectRedux = connect(mapStateToProps, mapDispatchToProps)
+export default connect(mapStateToProps, mapDispatchToProps)(Count)
 
-export default connectRedux(Count)
+// const connectRedux = connect(mapStateToProps, mapDispatchToProps)
+
+// export default connectRedux(Count)

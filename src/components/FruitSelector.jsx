@@ -50,7 +50,7 @@ class FruitSelector extends Component {
       <button
         className="fruitselector__button"
         disabled={ !Boolean(fruitType) }
-        onClick={ this.handleGameStartButtonClick }
+        onClick={ this.handleGameStatusClick }
       >
         { message ? 'START' : 'STOP' }
       </button>
@@ -73,7 +73,7 @@ class FruitSelector extends Component {
     chooseFruit(value)
   }
 
-  handleGameStartButtonClick = () => {
+  handleGameStatusClick = () => {
     const { startGame, finishGame } = this.props
     const { message } = this.state
 

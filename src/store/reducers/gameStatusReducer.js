@@ -1,4 +1,4 @@
-import { GAME_HAS_FINISHED, GAME_HAS_STARTED, SET_FRUIT_TYPE } from '../constants/gameStatus'
+import { GAME_HAS_FINISHED, GAME_HAS_STARTED, SET_FRUIT_TYPE } from 'store/constants/gameStatus'
 
 const initialState = {
   fruitType: null,

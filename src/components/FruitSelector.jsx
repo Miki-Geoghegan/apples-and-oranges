@@ -22,7 +22,7 @@ class FruitSelector extends Component {
     return (
       <div className="fruitselector__select" key={ value }>
         <img alt={ value } src={ imgSrc } />
-        <button onClick={ this.handleFruitSelectorClick } value={ value }>
+        <button className="fruitselector__selectButton" onClick={ this.handleFruitSelectorClick } value={ value }>
             Choose { value }
         </button>
       </div>
@@ -36,21 +36,21 @@ class FruitSelector extends Component {
     ]
 
     return (
-      <div className="fruit-container">
+      <div className="fruitcontainer">
         { fruits.map(this.renderUserOption) }
       </div>
     )
   }
 
-  renderButton() {
+  renderStartButton() {
     const { fruitType } = this.props
     const { message } = this.state
 
     return (
       <button
-        className="fruitselector__button"
-        disabled={ !Boolean(fruitType) }
-        onClick={ this.handleGameStatusClick }
+        className="fruitselector__startbutton"
+        disabled= { !Boolean(fruitType) }
+        onClick={ this.handleGameStartButtonClick }
       >
         { message ? 'START' : 'STOP' }
       </button>
@@ -62,7 +62,7 @@ class FruitSelector extends Component {
       <div className="fruitselector">
         <h1 className="fruitselector__title">Select Your Fruit</h1>
         <div>{ this.renderUserOptions() }</div>
-        <div>{ this.renderButton() }</div>
+        <div>{ this.renderStartButton() }</div>
       </div>
     )
   }
@@ -73,7 +73,7 @@ class FruitSelector extends Component {
     chooseFruit(value)
   }
 
-  handleGameStatusClick = () => {
+  handleGameStartButtonClick = () => {
     const { startGame, finishGame } = this.props
     const { message } = this.state
 
@@ -86,11 +86,6 @@ class FruitSelector extends Component {
       })
     }
     finishGame()
-    this.setState(prevState => {
-      return {
-        message: !prevState.message
-      }
-    })
   }
 
 }

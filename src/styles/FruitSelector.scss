@@ -1,3 +1,39 @@
 .fruitselector {
     background: transparent;
 }
+
+.fruitcontainer {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .fruitselector__select {
+    display: flex;
+    flex-direction: column;
+    margin: 5%;
+  }
+
+  .fruitselector__selectButton {
+    background-color: rgb(77, 0, 42);
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 5px;
+    border-style: none;
+  }
+
+  .fruitselector__selectButton:hover {
+      background-color: rgb(219, 0, 120);
+  }
+
+  .fruitselector__startbutton {
+      background-color: rgb(219, 0, 120);
+      font-weight: bold;
+      padding: 10px;
+      border-radius: 5px;
+      border-style: none;
+  }
+
+  .fruitselector__startbutton:hover {
+      background-color: rgb(255, 69, 172);
+  }

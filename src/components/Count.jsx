@@ -5,9 +5,8 @@ import React, { Component } from 'react'
 class Count extends Component {
 
   renderCurrentCount() {
-    const { count, decreaseCount, increaseCount } = this.props
-    console.log(count)
-    // current issue - count is undefined
+    const { decreaseCount, increaseCount } = this.props
+    const { count } = this.props
 
     return (
       <div>
@@ -30,7 +29,7 @@ class Count extends Component {
 
 const mapStateToProps = (globalState) => {
   return {
-    count: globalState.count
+    count: globalState.countReducer.count
   }
 }
 

@@ -45,6 +45,7 @@ class FruitSelector extends Component {
   renderStartButton() {
     const { fruitType } = this.props
     const { message } = this.state
+   console.log('Starting fruit type:', fruitType)
 
     return (
       <button
@@ -79,11 +80,7 @@ class FruitSelector extends Component {
 
     if (message === 'START') {
       startGame()
-      this.setState(prevState => {
-        return {
-          message: !prevState.message
-        }
-      })
+      this.setState({ message: !message })
     }
     finishGame()
   }
@@ -91,6 +88,8 @@ class FruitSelector extends Component {
 }
 
 const mapStateToProps = ({ fruitTypeReducer: { fruitType } }) => {
+  console.log('this is coming from mapStateToProps', fruitType)
+
   return {
     fruitType
   }

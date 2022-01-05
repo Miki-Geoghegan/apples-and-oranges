@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { DECREASE_COUNT, INCREASE_COUNT } from 'utils/constants'
+import { DECREASE_COUNT, INCREASE_COUNT } from 'store/constants/count'
 import React, { Component } from 'react'
 
 class Count extends Component {
@@ -19,18 +19,14 @@ class Count extends Component {
     )
   }
 
+  // consider moving start button here - from the fruit selector
+
   render() {
     return (
       <div>{ this.renderCurrentCount() }</div>
     )
   }
 
-}
-
-const mapStateToProps = (globalState) => {
-  return {
-    count: globalState.countReducer.count
-  }
 }
 
 const mapDispatchToProps = (dispatch) => {
@@ -44,8 +40,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Count)
-
-// const connectRedux = connect(mapStateToProps, mapDispatchToProps)
-
-// export default connectRedux(Count)
+export default connect(null, mapDispatchToProps)(Count)

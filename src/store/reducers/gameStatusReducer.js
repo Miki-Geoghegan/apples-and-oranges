@@ -6,7 +6,7 @@ const initialState = {
   hasGameStarted: false
 }
 
-const fruitTypeReducer = (state = initialState, action) => {
+const gameStatusReducer = (state = initialState, action) => {
   switch (action.type) {
   case SET_FRUIT_TYPE:
     return {
@@ -27,4 +27,4 @@ const fruitTypeReducer = (state = initialState, action) => {
   }
 }
 
-export default fruitTypeReducer
+export default gameStatusReducer

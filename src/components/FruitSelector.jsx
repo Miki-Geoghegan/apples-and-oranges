@@ -30,22 +30,34 @@ class FruitSelector extends Component {
   }
 
   renderUserOptions() {
+    const { message } = this.state
     const fruits = [
       { imgSrc: orangeImg, value: ORANGE },
       { imgSrc: appleImg, value: APPLE }
     ]
 
+    if (message === 'START') {
+      return (
+        <div className="fruitcontainer">
+          { fruits.map(this.renderUserOption) }
+        </div>
+      )
+    }
+
+    return (null)
+  }
+
+  renderCount() {
+    const { count } = this.props
+
     return (
-      <div className="fruitcontainer">
-        { fruits.map(this.renderUserOption) }
-      </div>
+      <div>count: { count }</div>
     )
   }
 
   renderStartButton() {
     const { fruitType } = this.props
     const { message } = this.state
-   console.log('Starting fruit type:', fruitType)
 
     return (
       <button
@@ -62,6 +74,7 @@ class FruitSelector extends Component {
     return (
       <div className="fruitselector">
         <h1 className="fruitselector__title">Select Your Fruit</h1>
+        <div>{ this.renderCount() }</div>
         <div>{ this.renderUserOptions() }</div>
         <div>{ this.renderStartButton() }</div>
       </div>
@@ -78,6 +91,9 @@ class FruitSelector extends Component {
     const { startGame, finishGame } = this.props
     const { message } = this.state
 
+    // this.renderUserOption()
+    // check that this is rendering anything, ? re-rendering the page?
+
     if (message === 'START') {
       startGame()
       this.setState({ message: !message })
@@ -87,10 +103,9 @@ class FruitSelector extends Component {
 
 }
 
-const mapStateToProps = ({ fruitTypeReducer: { fruitType } }) => {
-  console.log('this is coming from mapStateToProps', fruitType)
-
+const mapStateToProps = ({ countReducer: { count }, gameStatusReducer: { fruitType } }) => {
   return {
+    count,
     fruitType
   }
 }
@@ -111,4 +126,5 @@ const mapDispatchToProps = (dispatch) => {
 
 export default connect(mapStateToProps, mapDispatchToProps)(FruitSelector)
 
-// linkting = set of rules/ conventions that the code has to run by
+// linting = set of rules/ conventions that the code has to run by
+

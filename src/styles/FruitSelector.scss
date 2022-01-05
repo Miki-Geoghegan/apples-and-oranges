@@ -1,5 +1,7 @@
 .fruitselector {
-    background: transparent;
+    &__title {
+        color: rgb(219, 0, 120);
+    }
 }
 
 .fruitcontainer {
@@ -7,9 +9,7 @@
     justify-content: center;
   }
   
-  .fruitselector__title {
-      color: rgb(219, 0, 120);
-  }
+
   .fruitselector__select {
     display: flex;
     flex-direction: column;

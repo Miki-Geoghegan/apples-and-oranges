@@ -30,21 +30,16 @@ class FruitSelector extends Component {
   }
 
   renderUserOptions() {
-    const { message } = this.state
     const fruits = [
       { imgSrc: orangeImg, value: ORANGE },
       { imgSrc: appleImg, value: APPLE }
     ]
 
-    if (message === 'START') {
-      return (
-        <div className="fruitcontainer">
-          { fruits.map(this.renderUserOption) }
-        </div>
-      )
-    }
-
-    return (null)
+    return (
+      <div className="fruitcontainer">
+        { fruits.map(this.renderUserOption) }
+      </div>
+    )
   }
 
   renderCount() {
@@ -70,16 +65,21 @@ class FruitSelector extends Component {
     )
   }
 
-  // if game started return null
-
   render() {
+    const { hasGameStarted } = this.props
+
+    if (!hasGameStarted) {
+      return (
+        <div className="fruitselector">
+          <h1 className="fruitselector__title">Select Your Fruit</h1>
+          <div>{ this.renderUserOptions() }</div>
+          <div>{ this.renderStartButton() }</div>
+        </div>
+      )
+    }
+
     return (
-      <div className="fruitselector">
-        <h1 className="fruitselector__title">Select Your Fruit</h1>
-        <div>{ this.renderCount() }</div>
-        <div>{ this.renderUserOptions() }</div>
-        <div>{ this.renderStartButton() }</div>
-      </div>
+      <div>{ this.renderCount() }</div>
     )
   }
 
@@ -90,13 +90,10 @@ class FruitSelector extends Component {
   }
 
   handleGameStartButtonClick = () => {
-    const { startGame, finishGame } = this.props
+    const { startGame, finishGame, hasGameStarted } = this.props
     const { message } = this.state
 
-    // this.renderUserOption()
-    // check that this is rendering anything, ? re-rendering the page?
-
-    if (message === 'START') {
+    if (!hasGameStarted) {
       startGame()
       this.setState({ message: !message })
     }
@@ -104,11 +101,18 @@ class FruitSelector extends Component {
   }
 
 }
+//   if (message === 'START') {
+//     startGame()
+//     this.setState({ message: !message })
+//   }
+//   finishGame()
+// }
 
-const mapStateToProps = ({ countReducer: { count }, gameStatusReducer: { fruitType } }) => {
+const mapStateToProps = ({ countReducer: { count }, gameStatusReducer: { fruitType, hasGameStarted } }) => {
   return {
     count,
-    fruitType
+    fruitType,
+    hasGameStarted
   }
 }
 

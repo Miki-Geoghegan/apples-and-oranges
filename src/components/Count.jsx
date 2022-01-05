@@ -19,8 +19,6 @@ class Count extends Component {
     )
   }
 
-  // consider moving start button here - from the fruit selector
-
   render() {
     return (
       <div>{ this.renderCurrentCount() }</div>

@@ -1,14 +1,21 @@
 import { Component } from 'react'
+import { GAME_HAS_STARTED } from 'store/constants/gameStatus'
 import { connect } from 'react-redux'
 
 class GamePlay extends Component {
 
   renderChosenFruits() {
-    return (
-      <div>
+    const { startGame } = this.props
 
-      </div>
-    )
+    if (!startGame) {
+      return (
+        <div>
+
+        </div>
+      )
+    }
+
+    return null
   }
 
   render() {
@@ -19,4 +26,20 @@ class GamePlay extends Component {
 
 }
 
-export default GamePlay
+const mapStateToProps = ({ gameStatusReducer: { fruitType } }) => {
+  return {
+    fruitType
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    startGame: () => {
+      return dispatch({ type: GAME_HAS_STARTED })
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(GamePlay)
+
+// connect to global store to check if game has started - if started, return something, else return null

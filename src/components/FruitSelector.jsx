@@ -70,6 +70,8 @@ class FruitSelector extends Component {
     )
   }
 
+  // if game started return null
+
   render() {
     return (
       <div className="fruitselector">

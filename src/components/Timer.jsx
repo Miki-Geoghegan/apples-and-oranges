@@ -28,11 +28,12 @@ class Timer extends Component {
 
   runTimer() {
     const { startTimer, time } = this.props
+
     console.log(time)
 
     this.myInterval = setInterval(() => {
       startTimer()
-      console.log({ time })
+      console.log(time)
       if (time <= 0) {
         clearInterval(this.myInterval)
       }

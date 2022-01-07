@@ -1,20 +1,22 @@
 import { Component } from 'react'
 import { DECREASE_TIMER } from 'store/constants/timer'
+import { GAME_HAS_STARTED } from 'store/constants/gameStatus'
 import { connect } from 'react-redux'
 
 class Timer extends Component {
 
-  componentDidMount() {
-    const { startTimer } = this.props
+  // if game has started, start timer
 
-    this.myInterval = setInterval(() => {
-      startTimer()
-    }, 1000)
-  }
+  componentDidUpdate({ hasGameStarted: prevHasGameStarted }, prevState) {
+    const { hasGameStarted } = this.props
 
-  componentWillUnmount() {
-    clearInterval(this.myInterval)
+    if (!prevHasGameStarted & hasGameStarted) {
+      this.runTimer()
+    }
   }
+  // componentWillUnmount() {
+  //   clearInterval(this.myInterval)
+  // }
 
   render() {
     const { time } = this.props
@@ -24,16 +26,33 @@ class Timer extends Component {
     )
   }
 
+  runTimer() {
+    const { startTimer, time } = this.props
+    console.log(time)
+
+    this.myInterval = setInterval(() => {
+      startTimer()
+      console.log({ time })
+      if (time <= 0) {
+        clearInterval(this.myInterval)
+      }
+    }, 1000)
+  }
+
 }
 
-const mapStateToProps = ({ timerReducer: { time } }) => {
+const mapStateToProps = ({ timerReducer: { time }, gameStatusReducer: { hasGameStarted } }) => {
   return {
+    hasGameStarted,
     time
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    startGame: () => {
+      return dispatch({ type: GAME_HAS_STARTED })
+    },
     startTimer: () => {
       return dispatch({ type: DECREASE_TIMER })
     }

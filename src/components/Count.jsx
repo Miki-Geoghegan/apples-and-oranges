@@ -1,3 +1,4 @@
+import { GAME_HAS_STARTED } from 'store/constants/gameStatus'
 import { connect } from 'react-redux'
 import { DECREASE_COUNT, INCREASE_COUNT } from 'store/constants/count'
 import React, { Component } from 'react'
@@ -5,18 +6,19 @@ import React, { Component } from 'react'
 class Count extends Component {
 
   renderCurrentCount() {
-    const { decreaseCount, increaseCount } = this.props
-    const { count } = this.props
+    const { decreaseCount, increaseCount, count, hasGameStarted } = this.props
 
-    return (
-      <div>
-        <div>{ count }</div>
+    if (hasGameStarted) {
+      return (
         <div>
-          <button onClick={ increaseCount }>+</button>
-          <button onClick={ decreaseCount }>-</button>
+          <div>{ count }</div>
+          <div>
+            <button onClick={ increaseCount }>+</button>
+            <button onClick={ decreaseCount }>-</button>
+          </div>
         </div>
-      </div>
-    )
+      )
+    }
   }
 
   render() {
@@ -27,6 +29,13 @@ class Count extends Component {
 
 }
 
+const mapStateToProps = ({ countReducer: { count }, gameStatusReducer: { hasGameStarted } }) => {
+  return {
+    count,
+    hasGameStarted
+  }
+}
+
 const mapDispatchToProps = (dispatch) => {
   return {
     decreaseCount: () => {
@@ -34,8 +43,11 @@ const mapDispatchToProps = (dispatch) => {
     },
     increaseCount: () => {
       return dispatch({ type: INCREASE_COUNT })
+    },
+    startGame: () => {
+      return dispatch({ type: GAME_HAS_STARTED })
     }
   }
 }
 
-export default connect(null, mapDispatchToProps)(Count)
+export default connect(mapStateToProps, mapDispatchToProps)(Count)

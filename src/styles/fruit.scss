@@ -3,15 +3,15 @@
   color: white;
   position: relative;
   margin: 0 0 10px 0;
-  animation: move 8s infinite;
+  animation: move 4s infinite;
 }
 
 .move-fruit-2 {
-    animation-delay: 1s;
+    animation-delay: 500ms;
 }
 
 .move-fruit-3 {
-    animation-delay: 2s;
+    animation-delay: 1s;
 }
 
 @keyframes move {

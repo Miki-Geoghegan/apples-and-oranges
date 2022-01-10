@@ -5,6 +5,15 @@ import React, { Component } from 'react'
 
 class Fruit extends Component {
 
+  // componentDidUpdate(prevProps, { isActive: prevIsActive }) {
+  //   const { isActive } = this.state;
+
+  //   if (isActive !== prevIsActive) {
+  //     const chance = Math.random() > 0.66;
+  //     this.setState({ isGolden: chance });
+  //   }
+  // }
+
   renderUserOption = ({ imgSrc, value }) => {
     return (
       <div className="fruitselector__select" key={ value }>

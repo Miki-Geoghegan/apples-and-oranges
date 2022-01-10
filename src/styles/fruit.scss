@@ -1,0 +1,26 @@
+.move-fruit {
+  padding: 20px;
+  color: white;
+  position: relative;
+  margin: 0 0 10px 0;
+  animation: move 8s infinite;
+}
+
+.move-fruit-2 {
+    animation-delay: 1s;
+}
+
+.move-fruit-3 {
+    animation-delay: 2s;
+}
+
+@keyframes move {
+  0% {
+    left: 0%;
+    background: blue;
+  }
+  100% {
+    left: 100%;
+    background: red;
+  }
+}

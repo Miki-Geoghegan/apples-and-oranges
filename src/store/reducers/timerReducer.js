@@ -1,7 +1,7 @@
 import { DECREASE_TIMER } from 'store/constants/timer'
 
 const initialState = {
-  time: 5
+  time: 20
 }
 
 const timerReducer = (state = initialState, action) => {

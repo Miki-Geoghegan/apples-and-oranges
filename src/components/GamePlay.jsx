@@ -1,47 +1,47 @@
 import { Component } from 'react'
 import Fruit from 'components/Fruit'
-import { APPLE, ORANGE } from 'utils/constants'
-import { GAME_HAS_STARTED } from 'store/constants/gameStatus'
 import { connect } from 'react-redux'
+import { APPLE, ORANGE } from 'utils/constants'
 
 class GamePlay extends Component {
 
-  renderFruit(type) {
-    return <Fruit type={ type } />
+  renderFruit(type, idx) {
+    return <Fruit key={ `${type}-${idx}` } type={ type } />
   }
 
   renderFruits() {
     const { applesTotalNumber, orangesTotalNumber } = this.props
 
-    const applesArray = Array.from(Array(applesTotalNumber)).map(() => {return APPLE})
-    const orangesArray = Array.from(Array(orangesTotalNumber)).map(() => {return ORANGE})
+    const applesArray = this.buildFruitsArray(applesTotalNumber, APPLE)
+    const orangesArray = this.buildFruitsArray(orangesTotalNumber, ORANGE)
 
     return [...applesArray, ...orangesArray].map(this.renderFruit)
   }
 
   render() {
+    const { hasGameStarted } = this.props
+
+    if (!hasGameStarted) return null
+
     return (
-      <div>{ this.renderFruits() }</div>
+      <div className="game-play">{ this.renderFruits() }</div>
     )
+  }
+
+  buildFruitsArray(fruitTotalNumber, fruitType) {
+    return Array.from(Array(fruitTotalNumber)).map(() => {return fruitType})
   }
 
 }
 
-const mapStateToProps = ({ gameStatusReducer: { applesTotalNumber, orangesTotalNumber } }) => {
+const mapStateToProps = ({ gameStatusReducer: { applesTotalNumber, orangesTotalNumber, hasGameStarted } }) => {
   return {
     applesTotalNumber,
+    hasGameStarted,
     orangesTotalNumber
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    startGame: () => {
-      return dispatch({ type: GAME_HAS_STARTED })
-    }
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(GamePlay)
+export default connect(mapStateToProps)(GamePlay)
 
 // connect to global store to check if game has started - if started, return something, else return null

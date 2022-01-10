@@ -35,14 +35,6 @@ class FruitSelector extends Component {
     )
   }
 
-  renderCount() {
-    const { count } = this.props
-
-    return (
-      <div>count: { count }</div>
-    )
-  }
-
   renderStartButton() {
     const { fruitType } = this.props
 
@@ -59,18 +51,14 @@ class FruitSelector extends Component {
   render() {
     const { hasGameStarted } = this.props
 
-    if (!hasGameStarted) {
-      return (
-        <div className="fruitselector">
-          <h1 className="fruitselector__title">Select Your Fruit</h1>
-          <div>{ this.renderUserOptions() }</div>
-          <div>{ this.renderStartButton() }</div>
-        </div>
-      )
-    }
+    if (hasGameStarted) return null
 
     return (
-      <div>{ this.renderCount() }</div>
+      <div className="fruitselector">
+        <h1 className="fruitselector__title">Select Your Fruit</h1>
+        <div>{ this.renderUserOptions() }</div>
+        <div>{ this.renderStartButton() }</div>
+      </div>
     )
   }
 

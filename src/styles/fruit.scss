@@ -1,26 +1,25 @@
-.move-fruit {
-  padding: 20px;
-  color: white;
-  position: relative;
-  margin: 0 0 10px 0;
-  animation: move 4s infinite;
-}
-
-.move-fruit-2 {
-    animation-delay: 500ms;
-}
-
-.move-fruit-3 {
-    animation-delay: 1s;
-}
-
-@keyframes move {
-  0% {
-    left: 0%;
-    background: blue;
+@keyframes move-across-screen {
+  from {
+    transform: translateX(-100px);
   }
-  100% {
-    left: 100%;
-    background: red;
+  to {
+    transform: translateX(100%);
+  }
+}
+
+.fruit {
+  height: 100%;
+
+  &__container {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    transform: translateX(-100px);
+    animation: move-across-screen 2s;
+  }
+
+  &__image {
+    width: 100px;
+    display: block;
   }
 }

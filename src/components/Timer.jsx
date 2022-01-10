@@ -8,10 +8,13 @@ class Timer extends Component {
   // if game has started, start timer
 
   componentDidUpdate({ hasGameStarted: prevHasGameStarted }, prevState) {
-    const { hasGameStarted } = this.props
+    const { hasGameStarted, time } = this.props
 
     if (!prevHasGameStarted & hasGameStarted) {
       this.runTimer()
+    }
+    if (time === 0) {
+      clearInterval(this.myInterval)
     }
   }
   // componentWillUnmount() {
@@ -27,16 +30,10 @@ class Timer extends Component {
   }
 
   runTimer() {
-    const { startTimer, time } = this.props
-
-    console.log(time)
+    const { startTimer } = this.props
 
     this.myInterval = setInterval(() => {
       startTimer()
-      console.log(time)
-      if (time <= 0) {
-        clearInterval(this.myInterval)
-      }
     }, 1000)
   }
 

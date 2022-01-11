@@ -16,6 +16,7 @@ class Fruit extends Component {
         <div
           className="fruit__container"
           style={{
+            animationDelay: `${randomIntFromRange(0, 3)}s`,
             top: `${randomIntFromRange(0, 90)}%`
           }}>
           <img
@@ -34,3 +35,7 @@ class Fruit extends Component {
 // in this img tag from Fruit component : <img className="fruit__image" src={ fruitsImages[type] }/>, what exactly is the type referring?
 
 export default Fruit
+
+
+
+//NEXT MOVE - MAKE THE BUTTONS FOR THE COUNTER BETTER AND PLACE THEM OUTSIDE OF WHERE THE ORANGES AND APPLES FLY

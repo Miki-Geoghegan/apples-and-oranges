@@ -15,7 +15,8 @@
     width: 100%;
     left: 0;
     transform: translateX(-100px);
-    animation: move-across-screen 2s;
+    animation: move-across-screen 5s;
+    animation-iteration-count: 3;
   }
 
   &__image {

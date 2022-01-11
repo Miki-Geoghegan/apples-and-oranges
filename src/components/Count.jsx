@@ -6,24 +6,26 @@ import React, { Component } from 'react'
 class Count extends Component {
 
   renderCurrentCount() {
-    const { decreaseCount, increaseCount, count, hasGameStarted } = this.props
+    const { decreaseCount, increaseCount, count } = this.props
 
-    if (hasGameStarted) {
-      return (
+    return (
+      <div>
+        <div>{ count }</div>
         <div>
-          <div>{ count }</div>
-          <div>
-            <button onClick={ increaseCount }>+</button>
-            <button onClick={ decreaseCount }>-</button>
-          </div>
+          <button onClick={ increaseCount }>+</button>
+          <button onClick={ decreaseCount }>-</button>
         </div>
-      )
-    }
+      </div>
+    )
   }
 
   render() {
+    const { hasGameStarted } = this.props
+
+    if (!hasGameStarted) return null
+
     return (
-      <div>{ this.renderCurrentCount() }</div>
+      <div className="count">{ this.renderCurrentCount() }</div>
     )
   }
 

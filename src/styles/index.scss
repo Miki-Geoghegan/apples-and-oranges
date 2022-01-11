@@ -6,7 +6,6 @@
 @import 'styles/fruit.scss';
 
 body {
-  margin: 0;
   font-family: 'Bevan', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
     'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -15,7 +14,40 @@ body {
   background: $BRAND_COLOR;
 }
 
+* {
+  margin: 0;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+#root {
+  max-height: 100%;
+  overflow: hidden;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.timer,
+.count {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.count {
+  top: 75px;
+}
+
+.timer {
+  top: 25px;
+}
+
+.game-play {
+  height: 100%;
 }

@@ -22,10 +22,12 @@ class Timer extends Component {
   // }
 
   render() {
-    const { time } = this.props
+    const { hasGameStarted, time } = this.props
+
+    if (!hasGameStarted) return null
 
     return (
-      <div>TIME REMAINING: { time } seconds</div>
+      <div className="timer">TIME REMAINING: { time } seconds</div>
     )
   }
 

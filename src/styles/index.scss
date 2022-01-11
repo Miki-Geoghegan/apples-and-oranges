@@ -4,6 +4,8 @@
 @import 'styles/App.scss';
 @import 'styles/FruitSelector.scss';
 @import 'styles/fruit.scss';
+@import 'styles/timeAndCount.scss';
+@import 'styles/gamePlay.scss';
 
 body {
   font-family: 'Bevan', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
@@ -33,21 +35,3 @@ code {
     monospace;
 }
 
-.timer,
-.count {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.count {
-  top: 75px;
-}
-
-.timer {
-  top: 25px;
-}
-
-.game-play {
-  height: 100%;
-}

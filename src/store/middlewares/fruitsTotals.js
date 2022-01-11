@@ -21,3 +21,5 @@ export const fruitsTotalMiddleware = ({ dispatch }) => {
     }
   }
 }
+
+// Could we please go through the middleware once more later? I can't remember exactly how it works with everything and how it differs from a reducer?

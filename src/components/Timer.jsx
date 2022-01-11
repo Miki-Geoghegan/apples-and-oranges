@@ -17,9 +17,6 @@ class Timer extends Component {
       clearInterval(this.myInterval)
     }
   }
-  // componentWillUnmount() {
-  //   clearInterval(this.myInterval)
-  // }
 
   render() {
     const { hasGameStarted, time } = this.props

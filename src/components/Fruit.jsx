@@ -29,4 +29,8 @@ class Fruit extends Component {
 
 }
 
+// is the 'type' in the Fruit component is being passed from the GamePlay component but how do we know what it refers to? Where is the value coming from?
+
+// in this img tag from Fruit component : <img className="fruit__image" src={ fruitsImages[type] }/>, what exactly is the type referring?
+
 export default Fruit

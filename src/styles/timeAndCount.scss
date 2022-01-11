@@ -1,0 +1,14 @@
+.timer,
+.count {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.count {
+  top: 75px;
+}
+
+.timer {
+  top: 25px;
+}

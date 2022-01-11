@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import orangeImg from 'assets/orange.png'
 import { APPLE, ORANGE } from 'utils/constants'
 import {
-  GAME_HAS_FINISHED,
   GAME_HAS_STARTED,
   SET_FRUIT_TYPE
 } from 'store/constants/gameStatus'
@@ -88,9 +87,6 @@ const mapDispatchToProps = (dispatch) => {
   return {
     chooseFruit: (payload) => {
       return dispatch({ payload, type: SET_FRUIT_TYPE })
-    },
-    finishGame: () => {
-      return dispatch({ type: GAME_HAS_FINISHED })
     },
     startGame: () => {
       return dispatch({ type: GAME_HAS_STARTED })

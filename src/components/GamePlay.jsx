@@ -9,6 +9,9 @@ class GamePlay extends Component {
     return <Fruit key={ `${type}-${idx}` } type={ type } />
   }
 
+  // what is the meaning of `${type}-${idx}`as the key for the GamePlay component, renderFruit function?
+  // In the GamePlay, we are passing the 'type' to the Fruit component, but where are we telling it the value of this type, that we want it to be apple or orange?
+
   renderFruits() {
     const { applesTotalNumber, orangesTotalNumber } = this.props
 
@@ -33,6 +36,8 @@ class GamePlay extends Component {
   }
 
 }
+
+// Essentially, in the GamePlay component, in the buildFruitsArray function we are putting a number in and a fruit type, then building an array with the total number, mapping through it and for each number, returning the fruitType (orange or apple as a string)... so essentially, we will be left with ['apple', 'apple', 'apple', 'apple', 'apple'] etc. and the same with orange. In the renderFruits function, we then concat the new apples and oranges arrays and map through them, each time returning the Fruit component, which provides an image at a random height inside a container. If the Fruit component reads 'apple' it will provide the apple img (const fruitsImages = { [APPLE]: appleImg, [ORANGE]: orangeImg }), and same for orange. Still not entirely clear on how the 'type' is working
 
 const mapStateToProps = ({ gameStatusReducer: { applesTotalNumber, orangesTotalNumber, hasGameStarted } }) => {
   return {

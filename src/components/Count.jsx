@@ -12,8 +12,8 @@ class Count extends Component {
       <div>
         <div>{ count }</div>
         <div>
-          <button onClick={ increaseCount }>+</button>
-          <button onClick={ decreaseCount }>-</button>
+          <button className="count__button" onClick={ increaseCount }>+</button>
+          <button className="count__button" onClick={ decreaseCount }>-</button>
         </div>
       </div>
     )

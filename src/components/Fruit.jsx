@@ -35,7 +35,3 @@ class Fruit extends Component {
 // in this img tag from Fruit component : <img className="fruit__image" src={ fruitsImages[type] }/>, what exactly is the type referring?
 
 export default Fruit
-
-
-
-//NEXT MOVE - MAKE THE BUTTONS FOR THE COUNTER BETTER AND PLACE THEM OUTSIDE OF WHERE THE ORANGES AND APPLES FLY

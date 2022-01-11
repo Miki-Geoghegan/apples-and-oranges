@@ -10,9 +10,9 @@ const App = () => {
     <Provider store={ store }>
       <div className="App">
         <FruitSelector />
+        <GamePlay />
         <Count />
         <Timer />
-        <GamePlay />
       </div>
     </Provider>
   )

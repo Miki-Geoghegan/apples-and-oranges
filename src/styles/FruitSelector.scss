@@ -3,6 +3,7 @@ $base-color: rgb(219, 0, 120);
 .fruitselector {
     &__title {
         color: $base-color;
+        margin-top: 80px;
     }
     &__select {
         display: flex;

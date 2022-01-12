@@ -12,8 +12,8 @@ export const fruitsTotalMiddleware = ({ dispatch }) => {
       if (action.type === GAME_HAS_STARTED) {
         dispatch({
           payload: {
-            applesTotalNumber: randomIntFromRange(3, 7),
-            orangesTotalNumber: randomIntFromRange(3, 7)
+            applesTotalNumber: randomIntFromRange(8, 20),
+            orangesTotalNumber: randomIntFromRange(8, 20)
           },
           type: SET_FRUITS_TOTAL_NUMBER
         })

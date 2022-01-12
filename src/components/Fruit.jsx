@@ -16,7 +16,7 @@ class Fruit extends Component {
         <div
           className="fruit__container"
           style={{
-            animationDelay: `${randomIntFromRange(0, 3)}s`,
+            animationDelay: `${randomIntFromRange(0, 10)}s`,
             top: `${randomIntFromRange(0, 90)}%`
           }}>
           <img

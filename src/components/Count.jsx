@@ -53,3 +53,7 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Count)
+
+// logic of how to end the game - how to tell the user if they are correct
+// reset game at the end - every reducer once it gets reset game function will have to set to the initial state
+// add under timer - the fruit that is being counted for, dependent on the value selected

@@ -1,4 +1,5 @@
 import Count from 'components/Count'
+import EndGame from 'components/EndGame'
 import FruitSelector from 'components/FruitSelector'
 import GamePlay from 'components/GamePlay'
 import { Provider } from 'react-redux'
@@ -13,6 +14,7 @@ const App = () => {
         <GamePlay />
         <Count />
         <Timer />
+        <EndGame />
       </div>
     </Provider>
   )

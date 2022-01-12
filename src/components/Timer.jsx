@@ -1,20 +1,19 @@
 import { Component } from 'react'
 import { DECREASE_TIMER } from 'store/constants/timer'
-import { GAME_HAS_STARTED } from 'store/constants/gameStatus'
 import { connect } from 'react-redux'
+import { GAME_HAS_FINISHED, GAME_HAS_STARTED } from 'store/constants/gameStatus'
 
 class Timer extends Component {
 
-  // if game has started, start timer
-
   componentDidUpdate({ hasGameStarted: prevHasGameStarted }, prevState) {
-    const { hasGameStarted, time } = this.props
+    const { finishGame, hasGameStarted, time } = this.props
 
     if (!prevHasGameStarted & hasGameStarted) {
       this.runTimer()
     }
     if (time === 0) {
       clearInterval(this.myInterval)
+      finishGame()
     }
   }
 
@@ -38,8 +37,9 @@ class Timer extends Component {
 
 }
 
-const mapStateToProps = ({ timerReducer: { time }, gameStatusReducer: { hasGameStarted } }) => {
+const mapStateToProps = ({ timerReducer: { time }, gameStatusReducer: { hasGameStarted, hasGameFinished } }) => {
   return {
+    hasGameFinished,
     hasGameStarted,
     time
   }
@@ -47,6 +47,9 @@ const mapStateToProps = ({ timerReducer: { time }, gameStatusReducer: { hasGameS
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    finishGame: () => {
+      return dispatch({ type: GAME_HAS_FINISHED })
+    },
     startGame: () => {
       return dispatch({ type: GAME_HAS_STARTED })
     },

@@ -6,10 +6,11 @@ import React, { Component } from 'react'
 class Count extends Component {
 
   renderCurrentCount() {
-    const { decreaseCount, increaseCount, count } = this.props
+    const { decreaseCount, increaseCount, count, fruitType } = this.props
 
     return (
       <div>
+        <p>You are counting { fruitType }s</p>
         <div>{ count }</div>
         <div>
           <button className="count__button" onClick={ increaseCount }>+</button>
@@ -31,9 +32,10 @@ class Count extends Component {
 
 }
 
-const mapStateToProps = ({ countReducer: { count }, gameStatusReducer: { hasGameStarted } }) => {
+const mapStateToProps = ({ countReducer: { count }, gameStatusReducer: { hasGameStarted, fruitType } }) => {
   return {
     count,
+    fruitType,
     hasGameStarted
   }
 }
@@ -56,4 +58,3 @@ export default connect(mapStateToProps, mapDispatchToProps)(Count)
 
 // logic of how to end the game - how to tell the user if they are correct
 // reset game at the end - every reducer once it gets reset game function will have to set to the initial state
-// add under timer - the fruit that is being counted for, dependent on the value selected

@@ -56,5 +56,8 @@ const mapDispatchToProps = (dispatch) => {
 
 export default connect(mapStateToProps, mapDispatchToProps)(Count)
 
-// logic of how to end the game - how to tell the user if they are correct
 // reset game at the end - every reducer once it gets reset game function will have to set to the initial state
+// speed of the fruits to be variable & faster in general
+// if the user didn't get the number correct, tell them how far off they were and what the correct number was - difference between correct number and the guess: method that lives on the Math method (abs)
+// using click of the mouse as an event listener, to count fruit in place of buttons
+// reset button - action type that will impact different reducers (not exclusive to one reducer) - button to trigger initial state to return - add a new constant and every reducer should be listening for this action type, if this gets triggered, all will revert to initial state

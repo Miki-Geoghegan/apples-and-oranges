@@ -1,31 +1,34 @@
+import { APPLE } from 'utils/constants'
 import { DECREASE_TIMER } from 'store/constants/timer'
 import { connect } from 'react-redux'
-import { APPLE, ORANGE } from 'utils/constants'
-import { GAME_HAS_FINISHED, SET_FRUIT_TYPE } from 'store/constants/gameStatus'
+import { GAME_HAS_FINISHED, RESTART_GAME, SET_FRUIT_TYPE } from 'store/constants/gameStatus'
 import React, { Component } from 'react'
 
 class EndGame extends Component {
 
   renderEndGame() {
     const { count, fruitType, orangesTotalNumber, applesTotalNumber } = this.props
+    const isAppleType = fruitType === APPLE
+    const totalFruitNumber = isAppleType ? applesTotalNumber : orangesTotalNumber
 
-    console.log(count, fruitType, orangesTotalNumber, applesTotalNumber)
-
-    if (fruitType === ORANGE & count === orangesTotalNumber || fruitType === APPLE & count === applesTotalNumber) {
-      console.log('condition1')
-
-      return <div><p>YOU HAVE WON </p></div>
+    if (count === totalFruitNumber) {
+      return (
+        <p>YOU HAVE WON </p>
+      )
     }
-    console.log('condition2')
 
-    return <div><p>GAME OVER</p></div>
+    return <p>GAME OVER</p>
   }
 
-  //   renderEndGame() {
-  //     return (
-  //       <p>HELLO</p>
-  //     )
-  //   }
+  renderResetButton() {
+    return (
+      <button
+        className="endgame__resetbutton"
+        onClick={ this.handleResetButtonClick }
+      >RESTART
+      </button>
+    )
+  }
 
   render() {
     const { hasGameFinished } = this.props
@@ -33,8 +36,17 @@ class EndGame extends Component {
     if (!hasGameFinished) return null
 
     return (
-      <div>{ this.renderEndGame() }</div>
+      <div className="endgame">
+        <div>{ this.renderEndGame() }</div>
+        <div>{ this.renderResetButton() }</div>
+      </div>
     )
+  }
+
+  handleResetButtonClick = () => {
+    const { resetGame } = this.props
+
+    resetGame()
   }
 
 }
@@ -54,6 +66,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     chooseFruit: (payload) => {
       return dispatch({ payload, type: SET_FRUIT_TYPE })
+    },
+    resetGame: () => {
+      return dispatch({ type: RESTART_GAME })
     },
     startGame: () => {
       return dispatch({ type: GAME_HAS_FINISHED })

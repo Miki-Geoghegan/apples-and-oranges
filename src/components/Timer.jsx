@@ -8,7 +8,7 @@ class Timer extends Component {
   componentDidUpdate({ hasGameStarted: prevHasGameStarted }, prevState) {
     const { finishGame, hasGameStarted, time } = this.props
 
-    if (!prevHasGameStarted & hasGameStarted) {
+    if (!prevHasGameStarted && hasGameStarted) {
       this.runTimer()
     }
     if (time === 0) {

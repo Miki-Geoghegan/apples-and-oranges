@@ -1,6 +1,7 @@
 import {
   GAME_HAS_FINISHED,
   GAME_HAS_STARTED,
+  RESTART_GAME,
   SET_FRUITS_TOTAL_NUMBER,
   SET_FRUIT_TYPE
 } from 'store/constants/gameStatus'
@@ -35,6 +36,10 @@ const gameStatusReducer = (state = initialState, action) => {
       ...state,
       applesTotalNumber: action.payload.applesTotalNumber,
       orangesTotalNumber: action.payload.orangesTotalNumber
+    }
+  case RESTART_GAME:
+    return {
+      initialState
     }
   default: return state
   }

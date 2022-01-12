@@ -1,0 +1,18 @@
+@import 'styles/theme.scss';
+
+.endgame {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    &__resetbutton {
+        background-color: $base-color;
+        font-weight: bold;
+        padding: 20px;
+        margin: 10px;
+        border-radius: 5px;
+        border-style: none;
+    }
+    &__resetbutton {
+        background-color: rgb(255, 69, 172);
+    }
+}

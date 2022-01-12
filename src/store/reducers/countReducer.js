@@ -1,3 +1,4 @@
+import { RESTART_GAME } from 'store/constants/gameStatus'
 import { DECREASE_COUNT, INCREASE_COUNT } from 'store/constants/count'
 
 const initialState = {
@@ -16,8 +17,14 @@ const countReducer = (state = initialState, action) => {
       ...state,
       count: state.count - 1
     }
+  case RESTART_GAME:
+    return {
+      initialState
+    }
   default: return state
   }
 }
 
 export default countReducer
+
+// add another case, if action type = game restart, return our initial state

@@ -6,22 +6,26 @@ import React, { Component } from 'react'
 
 class EndGame extends Component {
 
-  // logic: if the timer === 0 and the { count } = applesTotalNumber/ orangesTotalNumber then return GAME OVER if !time === 0, return null
-  // need to access the time (timerReducer), the count (countReducer) and totalNumbers (gameStatusReducer) and the gameHasFinished (gameStatusReducer)
   renderEndGame() {
     const { count, fruitType, orangesTotalNumber, applesTotalNumber } = this.props
-    console.log( count, fruitType, orangesTotalNumber, applesTotalNumber)
+
+    console.log(count, fruitType, orangesTotalNumber, applesTotalNumber)
 
     if (fruitType === ORANGE & count === orangesTotalNumber || fruitType === APPLE & count === applesTotalNumber) {
-      return (
-        <p>YOU HAVE WON</p>
-      )
-    }
+      console.log('condition1')
 
-    return (
-      <p>GAME OVER</p>
-    )
+      return <div><p>YOU HAVE WON </p></div>
+    }
+    console.log('condition2')
+
+    return <div><p>GAME OVER</p></div>
   }
+
+  //   renderEndGame() {
+  //     return (
+  //       <p>HELLO</p>
+  //     )
+  //   }
 
   render() {
     const { hasGameFinished } = this.props

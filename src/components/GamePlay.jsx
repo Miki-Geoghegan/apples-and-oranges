@@ -9,9 +9,6 @@ class GamePlay extends Component {
     return <Fruit key={ `${type}-${idx}` } type={ type } />
   }
 
-  // what is the meaning of `${type}-${idx}`as the key for the GamePlay component, renderFruit function?
-  // In the GamePlay, we are passing the 'type' to the Fruit component, but where are we telling it the value of this type, that we want it to be apple or orange?
-
   renderFruits() {
     const { applesTotalNumber, orangesTotalNumber } = this.props
 

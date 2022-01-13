@@ -38,9 +38,7 @@ const gameStatusReducer = (state = initialState, action) => {
       orangesTotalNumber: action.payload.orangesTotalNumber
     }
   case RESTART_GAME:
-    return {
-      initialState
-    }
+    return initialState
   default: return state
   }
 }

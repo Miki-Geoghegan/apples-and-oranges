@@ -18,9 +18,7 @@ const countReducer = (state = initialState, action) => {
       count: state.count - 1
     }
   case RESTART_GAME:
-    return {
-      initialState
-    }
+    return initialState
   default: return state
   }
 }

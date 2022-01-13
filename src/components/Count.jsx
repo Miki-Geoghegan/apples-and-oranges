@@ -57,9 +57,9 @@ const mapDispatchToProps = (dispatch) => {
 
 export default connect(mapStateToProps, mapDispatchToProps)(Count)
 
-// work out why NAN coming on restart - when game has started something goes wrong with the time (check the button and what happens)
-// work out how to center the reset button, remove all else from screen
+// whatever you put to listen for on component did mount, replicate it on the component did unmount but remove it - this is important
 
-// using click of the mouse as an event listener, to count fruit in place of buttons
 // edit text, timer etc. to make nicer, more user friendly
 
+// how will the count react with the restart of the game?
+// make sure that the counter does not go down to minus numbers, past 0

@@ -10,8 +10,8 @@ class Count extends Component {
 
     return (
       <div>
-        <p>You are counting { fruitType }s</p>
-        <div>{ count }</div>
+        <p className="count__fruitTypeCounted">You are counting { fruitType }s</p>
+        <div className="count__totalCounted">{ count }</div>
         <div>
           <button className="count__button" onClick={ increaseCount }>+</button>
           <button className="count__button" onClick={ decreaseCount }>-</button>
@@ -21,9 +21,9 @@ class Count extends Component {
   }
 
   render() {
-    const { hasGameStarted } = this.props
+    const { hasGameFinished, hasGameStarted } = this.props
 
-    if (!hasGameStarted) return null
+    if (!hasGameStarted || hasGameFinished) return null
 
     return (
       <div className="count">{ this.renderCurrentCount() }</div>
@@ -32,10 +32,11 @@ class Count extends Component {
 
 }
 
-const mapStateToProps = ({ countReducer: { count }, gameStatusReducer: { hasGameStarted, fruitType } }) => {
+const mapStateToProps = ({ countReducer: { count }, gameStatusReducer: { hasGameFinished, hasGameStarted, fruitType } }) => {
   return {
     count,
     fruitType,
+    hasGameFinished,
     hasGameStarted
   }
 }
@@ -56,8 +57,9 @@ const mapDispatchToProps = (dispatch) => {
 
 export default connect(mapStateToProps, mapDispatchToProps)(Count)
 
-// reset game at the end - every reducer once it gets reset game function will have to set to the initial state
-// speed of the fruits to be variable & faster in general
-// if the user didn't get the number correct, tell them how far off they were and what the correct number was - difference between correct number and the guess: method that lives on the Math method (abs)
+// work out why NAN coming on restart - when game has started something goes wrong with the time (check the button and what happens)
+// work out how to center the reset button, remove all else from screen
+
 // using click of the mouse as an event listener, to count fruit in place of buttons
-// reset button - action type that will impact different reducers (not exclusive to one reducer) - button to trigger initial state to return - add a new constant and every reducer should be listening for this action type, if this gets triggered, all will revert to initial state
+// edit text, timer etc. to make nicer, more user friendly
+

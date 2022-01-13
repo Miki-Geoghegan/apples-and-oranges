@@ -16,12 +16,20 @@
     margin: 10px;
     border-radius: 5px;
     border-style: none;
-}
-&__button:hover {
+  }
+  &__button:hover {
     background-color: rgb(255, 69, 172);
-}
+  }
+  &__fruitTypeCounted {
+  color: $base-color;
+  font-size: 1.5em;
+  padding: 20px;
+  }
 }
 
 .timer {
   top: 25px;
+    position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }

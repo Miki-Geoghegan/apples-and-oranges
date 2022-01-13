@@ -10,6 +10,7 @@ class EndGame extends Component {
     const { count, fruitType, orangesTotalNumber, applesTotalNumber } = this.props
     const isAppleType = fruitType === APPLE
     const totalFruitNumber = isAppleType ? applesTotalNumber : orangesTotalNumber
+    const remainder = Math.abs(count - totalFruitNumber)
 
     if (count === totalFruitNumber) {
       return (
@@ -17,7 +18,14 @@ class EndGame extends Component {
       )
     }
 
-    return <p>GAME OVER</p>
+    return (
+      <div>
+        <p>GAME OVER</p>
+        <p>You counted { count } { fruitType }s</p>
+        <p>The correct number of { fruitType }s was { totalFruitNumber }</p>
+        <p>You were { remainder } points away from winning the game</p>
+      </div>
+    )
   }
 
   renderResetButton() {

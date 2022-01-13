@@ -18,9 +18,9 @@ class Timer extends Component {
   }
 
   render() {
-    const { hasGameStarted, time } = this.props
+    const { hasGameFinished, hasGameStarted, time } = this.props
 
-    if (!hasGameStarted) return null
+    if (!hasGameStarted || hasGameFinished) return null
 
     return (
       <div className="timer">TIME REMAINING: { time } seconds</div>

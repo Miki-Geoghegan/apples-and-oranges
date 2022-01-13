@@ -5,17 +5,23 @@ import React, { Component } from 'react'
 
 class Count extends Component {
 
+  componentDidMount() {
+    document.addEventListener('click', this.handleDocumentClick)
+    document.addEventListener('contextmenu', this.handleDocumentContextMenu)
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('click', this.handleDocumentClick)
+    document.removeEventListener('contextmenu', this.handleDocumentContextMenu)
+  }
+
   renderCurrentCount() {
-    const { decreaseCount, increaseCount, count, fruitType } = this.props
+    const { count, fruitType } = this.props
 
     return (
       <div>
         <p className="count__fruitTypeCounted">You are counting { fruitType }s</p>
         <div className="count__totalCounted">{ count }</div>
-        <div>
-          <button className="count__button" onClick={ increaseCount }>+</button>
-          <button className="count__button" onClick={ decreaseCount }>-</button>
-        </div>
       </div>
     )
   }
@@ -28,6 +34,20 @@ class Count extends Component {
     return (
       <div className="count">{ this.renderCurrentCount() }</div>
     )
+  }
+
+  handleDocumentClick = () => {
+    const { hasGameStarted, increaseCount } = this.props
+
+    if (hasGameStarted) increaseCount()
+  }
+
+  handleDocumentContextMenu = (evt) => {
+    evt.preventDefault()
+
+    const { hasGameStarted, decreaseCount } = this.props
+
+    if (hasGameStarted) decreaseCount()
   }
 
 }

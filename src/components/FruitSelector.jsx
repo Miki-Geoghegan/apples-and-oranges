@@ -67,7 +67,8 @@ class FruitSelector extends Component {
     chooseFruit(value)
   }
 
-  handleGameStartButtonClick = () => {
+  handleGameStartButtonClick = (evt) => {
+    evt.stopPropagation()
     const { startGame } = this.props
 
     startGame()

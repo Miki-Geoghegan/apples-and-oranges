@@ -37,17 +37,17 @@ class Count extends Component {
   }
 
   handleDocumentClick = () => {
-    const { hasGameStarted, increaseCount } = this.props
+    const { hasGameFinished, hasGameStarted, increaseCount } = this.props
 
-    if (hasGameStarted) increaseCount()
+    if (hasGameStarted && !hasGameFinished) increaseCount()
   }
 
   handleDocumentContextMenu = (evt) => {
     evt.preventDefault()
 
-    const { hasGameStarted, decreaseCount } = this.props
+    const { hasGameFinished, hasGameStarted, decreaseCount, count } = this.props
 
-    if (hasGameStarted) decreaseCount()
+    if (hasGameStarted && count > 0 && !hasGameFinished) decreaseCount()
   }
 
 }
@@ -78,8 +78,3 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(mapStateToProps, mapDispatchToProps)(Count)
 
 // NOTE: whatever you put to listen for on component did mount, replicate it on the component did unmount but remove it - this is important
-
-// edit text, timer etc. to make nicer, more user friendly
-
-// how will the count react with the restart of the game?
-// make sure that the counter does not go down to minus numbers, past 0

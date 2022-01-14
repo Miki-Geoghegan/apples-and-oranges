@@ -9,24 +9,19 @@
 
 .count {
   top: 75px;
-  &__button {
-    background-color: $base-color;
-    font-weight: bold;
-    padding: 20px;
-    margin: 10px;
-    border-radius: 5px;
-    border-style: none;
-  }
-  // &__button:hover {
-  //   background-color: rgb(255, 69, 172);
-  // }
   &__fruitTypeCounted {
-  color: $base-color;
-  font-size: 1.5em;
-  padding: 20px;
+    color: $base-color;
+    padding: 20px;
+  }
+  
+  &__totalCounted {
+    font-size: 3em;
   }
 }
 
 .timer {
   top: 25px;
+  &__number {
+    color: $base-color;;
+  }
 }

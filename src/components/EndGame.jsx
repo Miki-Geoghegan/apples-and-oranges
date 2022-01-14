@@ -14,16 +14,16 @@ class EndGame extends Component {
 
     if (count === totalFruitNumber) {
       return (
-        <p>YOU HAVE WON </p>
+        <p className="endgame__winorlose">YOU HAVE WON </p>
       )
     }
 
     return (
       <div>
-        <p>GAME OVER</p>
-        <p>You counted { count } { fruitType }s</p>
-        <p>The correct number of { fruitType }s was { totalFruitNumber }</p>
-        <p>You were { remainder } points away from winning the game</p>
+        <p className="endgame__winorlose">GAME OVER</p>
+        <p>You counted <span className="endgame__numbers">{ count }</span> { fruitType }s</p>
+        <p>The correct number of { fruitType }s was <span className="endgame__numbers">{ totalFruitNumber }</span></p>
+        <p>You were <span className="endgame__numbers">{ remainder }</span> points away from winning the game</p>
       </div>
     )
   }

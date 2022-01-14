@@ -23,7 +23,7 @@ class Timer extends Component {
     if (!hasGameStarted || hasGameFinished) return null
 
     return (
-      <div className="timer">TIME REMAINING: { time } seconds</div>
+      <div className="timer">TIME REMAINING: <span className="timer__number">{ time }</span> seconds</div>
     )
   }
 

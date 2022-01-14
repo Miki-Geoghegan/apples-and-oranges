@@ -13,7 +13,14 @@
         border-radius: 5px;
         border-style: none;
     }
-    &__resetbutton {
+    &__resetbutton:hover {
         background-color: rgb(255, 69, 172);
+    }
+    &__winorlose {
+        font-size: 3em;
+        color: $base-color;
+    }
+    &__numbers {
+        color: $base-color;
     }
 }

@@ -77,7 +77,7 @@ const mapDispatchToProps = (dispatch) => {
 
 export default connect(mapStateToProps, mapDispatchToProps)(Count)
 
-// whatever you put to listen for on component did mount, replicate it on the component did unmount but remove it - this is important
+// NOTE: whatever you put to listen for on component did mount, replicate it on the component did unmount but remove it - this is important
 
 // edit text, timer etc. to make nicer, more user friendly
 

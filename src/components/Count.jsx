@@ -20,8 +20,10 @@ class Count extends Component {
 
     return (
       <div>
-        <p className="count__fruitTypeCounted">You are counting { fruitType }s</p>
-        <div className="count__totalCounted">{ count }</div>
+        <p className="count__fruittypecounted">You are counting { fruitType }s</p>
+        <p>Click <span className="count__counter">+</span></p>
+        <p>Right Click <span className="count__counter">-</span></p>
+        <div className="count__totalcounted">{ count }</div>
       </div>
     )
   }
@@ -78,3 +80,5 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(mapStateToProps, mapDispatchToProps)(Count)
 
 // NOTE: whatever you put to listen for on component did mount, replicate it on the component did unmount but remove it - this is important
+
+// add click to count, rightclick to decrease count

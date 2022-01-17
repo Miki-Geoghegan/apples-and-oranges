@@ -9,13 +9,17 @@
 
 .count {
   top: 75px;
-  &__fruitTypeCounted {
+  &__fruittypecounted {
     color: $base-color;
     padding: 20px;
   }
   
-  &__totalCounted {
+  &__totalcounted {
     font-size: 3em;
+  }
+  &__counter {
+    color: $base-color;
+    font-size: 1.5em;
   }
 }
 

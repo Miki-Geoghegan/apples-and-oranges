@@ -12,11 +12,8 @@ class FruitSelector extends Component {
 
   renderUserOption = ({ imgSrc, value }) => {
     return (
-      <div className="fruitselector__select" key={ value }>
-        <img alt={ value } src={ imgSrc } />
-        <button className="fruitselector__selectButton" onClick={ this.handleFruitSelectorClick } value={ value }>
-            Choose { value }
-        </button>
+      <div className={ this.buildClassName(value) } key={ value } onClick={ this.handleFruitSelectorClick } >
+        <img alt={ value } data-key={ value } src={ imgSrc } />
       </div>
     )
   }
@@ -61,10 +58,10 @@ class FruitSelector extends Component {
     )
   }
 
-  handleFruitSelectorClick = ({ target: { value } }) => {
+  handleFruitSelectorClick = ({ target: { dataset: { key } } }) => {
     const { chooseFruit } = this.props
 
-    chooseFruit(value)
+    chooseFruit(key)
   }
 
   handleGameStartButtonClick = (evt) => {
@@ -72,6 +69,16 @@ class FruitSelector extends Component {
     const { startGame } = this.props
 
     startGame()
+  }
+
+  buildClassName = (value) => {
+    const { fruitType } = this.props
+    let className = 'fruitselector__select'
+
+    if (!fruitType) className
+    if (fruitType === value) className += `__${fruitType}`
+
+    return className
   }
 
 }
@@ -98,8 +105,3 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(mapStateToProps, mapDispatchToProps)(FruitSelector)
 
 // linting = set of rules/ conventions that the code has to run by
-
-// create fruit component - when game starts, create function that returns a random number (in range) of both apples or oranges
-// A fruits component should be created - a wrapper for the fruits
-// counting event listener
-// start button should only start the game - counter will end the game when reaches 0 (consider how to trigger the ending of the game from the timer component)

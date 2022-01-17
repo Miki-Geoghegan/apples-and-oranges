@@ -75,8 +75,8 @@ class FruitSelector extends Component {
     const { fruitType } = this.props
     let className = 'fruitselector__select'
 
-    if (!fruitType) className
-    if (fruitType === value) className += `__${fruitType}`
+    if (!fruitType) className += ` ${className}--hover`
+    if (fruitType === value) className += ` ${className}--${fruitType}`
 
     return className
   }

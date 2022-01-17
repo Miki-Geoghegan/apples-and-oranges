@@ -1,5 +1,6 @@
 $base-color: rgb(219, 0, 120);
-$fruit: [apple orange];
+$selected: 5px solid $base-color;
+$initial-border: 5px solid rgba(0,0,0,0);
 
 .fruitselector {
     &__title {
@@ -11,21 +12,15 @@ $fruit: [apple orange];
         flex-direction: column;
         margin: 5%;
         border: 5px solid rgba(0,0,0,0);
-        &__orange {
-            display: flex;
-            flex-direction: column;
-            margin: 5%;
-            border: 5px solid $base-color;
+        &--orange {
+            border: $selected;
         }
-        &__apple {
-        display: flex;
-        flex-direction: column;
-        margin: 5%;
-        border: 5px solid $base-color;
-    }
-      }
-    &__select:hover {
-        border: 5px dotted $base-color;
+        &--apple {
+        border: $selected;
+        }
+        &--hover:hover {
+            border: 5px dotted $base-color;
+        }
     }
     &__selectButton:hover {
         background-color: $base-color;

@@ -22,9 +22,6 @@ $initial-border: 5px solid rgba(0,0,0,0);
             border: 5px dotted $base-color;
         }
     }
-    &__selectButton:hover {
-        background-color: $base-color;
-    }
     &__startbutton {
         background-color: $base-color;
         font-weight: bold;
